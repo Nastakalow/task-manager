@@ -9,26 +9,35 @@ import FormInput from "../form-input";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, logInWithEmailAndPassword } from "../../services/auth";
 
-function LoginForm() {
+function LoginForm({ role }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   const submitLogin = async (data) => {
-    const response = await logInWithEmailAndPassword(data.email, data.password);
+    const response = await logInWithEmailAndPassword(
+      data.email,
+      data.password,
+      role
+    );
     localStorage.setItem(
       "user",
-      JSON.stringify({ token: user.accessToken, email: user.email })
+      JSON.stringify({ token: user.accessToken, email: user.email, role })
     );
+    console.log(response);
 
     if (response.status === 200) {
-      navigate("/dashboard");
+      navigate(`/${role}/dashboard`);
     }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <form onSubmit={handleSubmit(submitLogin)} className={styles.formContainer}>

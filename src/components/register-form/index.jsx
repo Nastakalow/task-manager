@@ -1,8 +1,7 @@
 import styles from "./styles.module.css";
 
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { REGISTER_FORM_FIELDS } from "./constants";
 import FormInput from "../form-input";
@@ -10,7 +9,6 @@ import FormInput from "../form-input";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../../services/auth";
 import { addOrganization } from "../../services/organization";
-import { addUser } from "../../services/user";
 
 function RegisterForm() {
   const {
@@ -18,8 +16,9 @@ function RegisterForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user, loading, error] = useAuthState(auth);
+  const [loading] = useAuthState(auth);
   const navigate = useNavigate();
+  const ROLE = "admin";
 
   const submitRegister = async (data) => {
     const organizationData = {
@@ -33,7 +32,7 @@ function RegisterForm() {
       username: data.username,
       email: data.email,
       password: data.password,
-      role: "admin",
+      role: ROLE,
       organizationId,
     };
     const response = await registerWithEmailAndPassword(userData);
@@ -42,6 +41,10 @@ function RegisterForm() {
       navigate("/admin/login");
     }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <form

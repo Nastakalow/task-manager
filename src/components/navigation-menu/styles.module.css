@@ -1,0 +1,16 @@
+.navWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navItemWrapper {
+  border: 1px solid #fff;
+  display: flex;
+}
+
+.iconWrapper {
+}
+
+.title {
+}

@@ -6,16 +6,35 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, getDocs, where } from "firebase/firestore";
 import { app, db } from "../../db/firebase-config";
 
 const auth = getAuth(app);
 
-const logInWithEmailAndPassword = async (email, password) => {
+const logInWithEmailAndPassword = async (email, password, role) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
 
-    return { status: 200, message: "Login successful" };
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.size > 0) {
+      const userData = querySnapshot.docs[0].data();
+      const userRole = userData.role;
+
+      if (userRole === role) {
+        return { status: 200, message: "Login successful" };
+      } else {
+        return { status: 403, message: "Email or password is incorrect" };
+      }
+    } else {
+      return { status: 404, message: "User data not found" };
+    }
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -24,12 +43,13 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async (userData) => {
   try {
-    const res = await createUserWithEmailAndPassword(
+    const userCredential = await createUserWithEmailAndPassword(
       auth,
       userData.email,
       userData.password
     );
-    const user = res.user;
+    const user = userCredential.user;
+
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       ...userData,

@@ -1,0 +1,13 @@
+.sidebarContainer {
+  grid-area: sidebar;
+  padding: 16px 24px;
+  border-right: 1px solid #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.logo > img {
+  width: 100%;
+}
