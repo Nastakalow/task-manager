@@ -1,0 +1,15 @@
+.groupContainer {
+}
+
+.label {
+}
+
+.input {
+  border: 1px solid #fff;
+}
+
+.errMessage {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
