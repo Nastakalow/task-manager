@@ -7,29 +7,35 @@ import {
 } from "firebase/auth";
 
 import { collection, addDoc } from "firebase/firestore";
-import { app, db } from "./firebase-config";
+import { app, db } from "../../db/firebase-config";
 
 const auth = getAuth(app);
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+
+    return { status: 200, message: "Login successful" };
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (userData) => {
   try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await createUserWithEmailAndPassword(
+      auth,
+      userData.email,
+      userData.password
+    );
     const user = res.user;
     await addDoc(collection(db, "users"), {
       uid: user.uid,
-      name,
-      authProvider: "local",
-      email,
+      ...userData,
     });
+
+    return { status: 200, message: "Registration successful" };
   } catch (err) {
     console.error(err);
     alert(err.message);

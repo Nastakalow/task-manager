@@ -1,14 +1,13 @@
 import styles from "./styles.module.css";
 
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { LOGIN_FORM_FIELDS } from "./constants";
 import FormInput from "../form-input";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, logInWithEmailAndPassword } from "../../services/firebase-auth";
+import { auth, logInWithEmailAndPassword } from "../../services/auth";
 
 function LoginForm() {
   const {
@@ -16,19 +15,20 @@ function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
-  const submitLogin = (data) => {
-    logInWithEmailAndPassword(data.email, data.password);
-  };
+  const submitLogin = async (data) => {
+    const response = await logInWithEmailAndPassword(data.email, data.password);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ token: user.accessToken, email: user.email })
+    );
 
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
+    if (response.status === 200) {
+      navigate("/dashboard");
     }
-    if (user) redirect("/dashboard");
-  }, [user, loading]);
+  };
 
   return (
     <form onSubmit={handleSubmit(submitLogin)} className={styles.formContainer}>

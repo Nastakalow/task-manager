@@ -8,37 +8,37 @@ import {
 } from "../../utils/validations";
 
 export const REGISTER_FORM_FIELDS = [
-  // {
-  //   id: "organizationName",
-  //   label: "Organization Name",
-  //   type: "text",
-  //   name: "organizationName",
-  //   placeholder: "Organization Name",
-  //   validation: organizationName_validation,
-  // },
-  // {
-  //   id: "phoneNumber",
-  //   label: "Phone Number",
-  //   type: "tel",
-  //   name: "phoneNumber",
-  //   placeholder: "Phone Number",
-  //   validation: phone_validation,
-  // },
-  // {
-  //   id: "address",
-  //   label: "Address",
-  //   type: "text",
-  //   name: "address",
-  //   placeholder: "Address",
-  //   validation: address_validation,
-  // },
+  {
+    id: "organizationName",
+    label: "Organization Name",
+    type: "text",
+    name: "organizationName",
+    placeholder: "Organization Name",
+    validation: organizationName_validation,
+  },
+  {
+    id: "phoneNumber",
+    label: "Phone Number",
+    type: "tel",
+    name: "phoneNumber",
+    placeholder: "Phone Number",
+    validation: phone_validation,
+  },
+  {
+    id: "address",
+    label: "Address",
+    type: "text",
+    name: "address",
+    placeholder: "Address",
+    validation: address_validation,
+  },
   {
     id: "username",
     label: "Username",
     type: "text",
     name: "username",
     placeholder: "Username",
-    validation: username_validation,
+    // validation: username_validation,
   },
   {
     id: "email",
@@ -46,7 +46,7 @@ export const REGISTER_FORM_FIELDS = [
     type: "email",
     name: "email",
     placeholder: "Email",
-    validation: email_validation,
+    // validation: email_validation,
   },
   {
     id: "password",
@@ -54,6 +54,6 @@ export const REGISTER_FORM_FIELDS = [
     type: "password",
     name: "password",
     placeholder: "Password",
-    validation: password_validation,
+    // validation: password_validation,
   },
 ];
