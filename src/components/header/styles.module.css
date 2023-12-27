@@ -4,3 +4,49 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.profileWrapper {
+  position: relative;
+}
+
+.profileBtn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 16px;
+  border: 1px solid #fff;
+}
+
+.profileImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.username {
+  text-transform: capitalize;
+}
+
+.logoutBtn {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

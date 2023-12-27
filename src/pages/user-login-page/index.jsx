@@ -1,7 +1,7 @@
-import UserLoginPageContainer from "../../containers/user-login-page-container";
+import LoginPageContainer from "../../containers/login-page-container";
 
 function UserLoginPage() {
-  return <UserLoginPageContainer />;
+  return <LoginPageContainer role={"user"} />;
 }
 
 export default UserLoginPage;

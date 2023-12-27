@@ -24,11 +24,17 @@ function LoginForm({ role }) {
       data.password,
       role
     );
+
     localStorage.setItem(
       "user",
-      JSON.stringify({ token: user.accessToken, email: user.email, role })
+      JSON.stringify({
+        token: user?.accessToken,
+        email: user.email,
+        username: user.displayName,
+        role,
+        organizationId: response.organizationId,
+      })
     );
-    console.log(response);
 
     if (response.status === 200) {
       navigate(`/${role}/dashboard`);

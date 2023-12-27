@@ -1,0 +1,23 @@
+.container {
+  /* border: 1px solid red; */
+}
+
+.createBtn {
+  border: 1px solid #fff;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.popupContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.tasksWrapper {
+  border: 1px solid #fff;
+  padding: 16px 24px;
+}

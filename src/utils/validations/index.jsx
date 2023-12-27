@@ -42,6 +42,36 @@ export const address_validation = {
   },
 };
 
+export const firstName_validation = {
+  required: {
+    value: true,
+    message: REQUIRED_MESSAGE,
+  },
+  maxLength: {
+    value: 30,
+    message: MAX_LENGTH_MESSAGE,
+  },
+  minLength: {
+    value: 3,
+    message: MIN_LENGTH_MESSAGE,
+  },
+};
+
+export const lastName_validation = {
+  required: {
+    value: true,
+    message: REQUIRED_MESSAGE,
+  },
+  maxLength: {
+    value: 30,
+    message: MAX_LENGTH_MESSAGE,
+  },
+  minLength: {
+    value: 3,
+    message: MIN_LENGTH_MESSAGE,
+  },
+};
+
 export const username_validation = {
   required: {
     value: true,
@@ -77,5 +107,27 @@ export const password_validation = {
   pattern: {
     value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
     message: PASSWORD_MESSAGE,
+  },
+};
+
+export const taskTitle_validation = {
+  required: {
+    value: true,
+    message: REQUIRED_MESSAGE,
+  },
+  maxLength: {
+    value: 30,
+    message: MAX_LENGTH_MESSAGE,
+  },
+  minLength: {
+    value: 3,
+    message: MIN_LENGTH_MESSAGE,
+  },
+};
+
+export const taskDeadline_validation = {
+  required: {
+    value: true,
+    message: REQUIRED_MESSAGE,
   },
 };

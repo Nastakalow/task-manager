@@ -6,8 +6,8 @@ import "./styles/reset.css";
 import "./styles/global.css";
 
 import { Provider } from "react-redux";
-import { store } from "./stores";
 import { router } from "./router";
+import { store } from "./app/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

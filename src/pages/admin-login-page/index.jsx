@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import AdminLoginPageContainer from "../../containers/admin-login-page-container";
 import { useNavigate } from "react-router-dom";
+import LoginPageContainer from "../../containers/login-page-container";
 
 function AdminLoginPage() {
   const navigate = useNavigate();
@@ -9,11 +9,11 @@ function AdminLoginPage() {
     const user = JSON.parse(localStorage.getItem("user")) || {};
 
     if (user.token) {
-      navigate("/dashboard");
+      navigate("/admin/dashboard");
     }
   }, []);
 
-  return <AdminLoginPageContainer />;
+  return <LoginPageContainer role={"admin"} />;
 }
 
 export default AdminLoginPage;

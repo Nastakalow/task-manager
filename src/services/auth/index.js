@@ -2,6 +2,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  updateProfile,
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
@@ -28,7 +29,10 @@ const logInWithEmailAndPassword = async (email, password, role) => {
       const userRole = userData.role;
 
       if (userRole === role) {
-        return { status: 200, message: "Login successful" };
+        return {
+          status: 200,
+          organizationId: userData.organizationId,
+        };
       } else {
         return { status: 403, message: "Email or password is incorrect" };
       }
@@ -50,6 +54,10 @@ const registerWithEmailAndPassword = async (userData) => {
     );
     const user = userCredential.user;
 
+    await updateProfile(user, {
+      displayName: userData.username,
+    });
+
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       ...userData,
@@ -57,7 +65,6 @@ const registerWithEmailAndPassword = async (userData) => {
 
     return { status: 200, message: "Registration successful" };
   } catch (err) {
-    console.error(err);
     alert(err.message);
   }
 };

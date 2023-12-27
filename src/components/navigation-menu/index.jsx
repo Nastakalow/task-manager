@@ -9,16 +9,18 @@ function NavigationMenu() {
 
   return (
     <nav className={styles.navWrapper}>
-      {MENU.map((item) => (
-        <NavLink
-          className={styles.navItemWrapper}
-          to={`${role}/${item.href}`}
-          key={item.id}
-        >
-          <div className={styles.iconWrapper}>{item.icon}</div>
-          <p className={styles.title}>{item.title}</p>
-        </NavLink>
-      ))}
+      {MENU.map((item, index) => {
+        return index === 2 && role === "user" ? null : (
+          <NavLink
+            key={item.id}
+            className={styles.navItemWrapper}
+            to={`${role}/${item.href}`}
+          >
+            <div className={styles.iconWrapper}>{item.icon}</div>
+            <p className={styles.title}>{item.title}</p>
+          </NavLink>
+        );
+      })}
     </nav>
   );
 }

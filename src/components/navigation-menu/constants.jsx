@@ -1,5 +1,6 @@
 import { RxDashboard } from "react-icons/rx";
-import { RiTaskLine, RiSettings5Line } from "react-icons/ri";
+import { RiTaskLine } from "react-icons/ri";
+import { LuUserCheck } from "react-icons/lu";
 
 export const MENU = [
   {
@@ -16,8 +17,8 @@ export const MENU = [
   },
   {
     id: 2,
-    icon: <RiSettings5Line />,
-    title: "Settings",
-    href: "settings",
+    icon: <LuUserCheck />,
+    title: "Create User",
+    href: "create-user",
   },
 ];

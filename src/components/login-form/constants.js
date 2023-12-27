@@ -1,8 +1,4 @@
-import {
-  email_validation,
-  username_validation,
-  password_validation,
-} from "../../utils/validations";
+import { email_validation, password_validation } from "../../utils/validations";
 
 export const LOGIN_FORM_FIELDS = [
   {

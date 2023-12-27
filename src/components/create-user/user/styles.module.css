@@ -1,0 +1,9 @@
+.userContainer {
+  border: 1px solid #fff;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

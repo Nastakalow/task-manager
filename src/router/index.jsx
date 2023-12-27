@@ -1,10 +1,13 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import {
-  AdminDashboard,
-  AdminLoginPage,
   AdminRegisterPage,
-  UserDashboardPage,
+  AdminLoginPage,
+  AdminDashboardPage,
+  AdminTasksPage,
+  AdminCreateUserPage,
   UserLoginPage,
+  UserDashboardPage,
+  UserTasksPage,
 } from "../pages";
 import MainLayout from "../layouts/main-layout";
 
@@ -30,11 +33,23 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "admin/dashboard",
-        element: <AdminDashboard />,
+        element: <AdminDashboardPage />,
+      },
+      {
+        path: "admin/tasks",
+        element: <AdminTasksPage />,
+      },
+      {
+        path: "admin/create-user",
+        element: <AdminCreateUserPage />,
       },
       {
         path: "user/dashboard",
         element: <UserDashboardPage />,
+      },
+      {
+        path: "user/tasks",
+        element: <UserTasksPage />,
       },
     ],
   },

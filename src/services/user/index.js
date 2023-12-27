@@ -1,10 +1,13 @@
-import { addDoc, collection } from "firebase/firestore";
+import { collection, query, getDocs, where } from "firebase/firestore";
 import { db } from "../../db/firebase-config";
 
-export const addUser = async (userData) => {
-  try {
-    await addDoc(collection(db, "user"), userData);
-  } catch (error) {
-    console.error("Error writing document: ", error);
-  }
+export const fetchUsers = async (id) => {
+  const q = query(
+    collection(db, "users"),
+    where("role", "==", "user"),
+    where("organizationId", "==", id)
+  );
+  const querySnapshot = await getDocs(q);
+
+  return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
