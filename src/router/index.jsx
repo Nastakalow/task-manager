@@ -4,12 +4,14 @@ import {
   AdminLoginPage,
   AdminDashboardPage,
   AdminTasksPage,
+  AdminTaskDetailPage,
   AdminCreateUserPage,
   UserLoginPage,
   UserDashboardPage,
   UserTasksPage,
 } from "../pages";
 import MainLayout from "../layouts/main-layout";
+import UserTaskDetailPage from "../pages/user-task-detail-page";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,10 @@ export const router = createBrowserRouter([
         element: <AdminTasksPage />,
       },
       {
+        path: "admin/tasks/:id",
+        element: <AdminTaskDetailPage />,
+      },
+      {
         path: "admin/create-user",
         element: <AdminCreateUserPage />,
       },
@@ -50,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "user/tasks",
         element: <UserTasksPage />,
+      },
+      {
+        path: "user/tasks/:id",
+        element: <UserTaskDetailPage />,
       },
     ],
   },

@@ -19,8 +19,8 @@ function CreateUserContainer() {
   return (
     <div className={styles.createUserContainer}>
       <div className={styles.usersWrapper}>
-        {users.map((user) => (
-          <User key={user.id} {...user} />
+        {users.map((user, index) => (
+          <User key={index} {...user} />
         ))}
       </div>
       <div className={styles.createUserFormWrapper}>

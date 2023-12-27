@@ -19,6 +19,8 @@ function LoginForm({ role }) {
   const navigate = useNavigate();
 
   const submitLogin = async (data) => {
+    console.log(data);
+
     const response = await logInWithEmailAndPassword(
       data.email,
       data.password,

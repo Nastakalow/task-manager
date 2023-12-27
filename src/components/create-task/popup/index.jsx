@@ -17,12 +17,18 @@ function TaskPopup({ setShowPopup }) {
     formState: { errors },
   } = useForm();
   const nodeRef = useRef(null);
+  const { username, organizationId } = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
 
   const submitTask = async (data) => {
-    const { organizationId } = JSON.parse(localStorage.getItem("user"));
+    const taskData = {
+      ...data,
+      status: false,
+      assignee: username,
+      organizationId,
+    };
 
-    await dispatch(createTask({ ...data, organizationId }));
+    await dispatch(createTask(taskData));
     setShowPopup(false);
   };
 

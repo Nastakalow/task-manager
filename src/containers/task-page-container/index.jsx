@@ -32,8 +32,8 @@ function TaskPageContainer() {
         </div>
       )}
       <div className={styles.tasksWrapper}>
-        {tasks?.map((task) => (
-          <Task key={task.id} {...task} />
+        {tasks?.map((task, index) => (
+          <Task key={index} {...task} />
         ))}
       </div>
     </div>

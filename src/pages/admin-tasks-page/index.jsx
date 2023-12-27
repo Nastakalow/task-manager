@@ -1,5 +1,7 @@
+import TaskPageContainer from "../../containers/task-page-container";
+
 function AdminTasksPage() {
-  return <div>AdminTasksPage</div>;
+  return <TaskPageContainer />;
 }
 
 export default AdminTasksPage;

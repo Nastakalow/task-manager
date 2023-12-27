@@ -4,6 +4,8 @@ function FormInput({
   id,
   label,
   type,
+  value,
+  disabled,
   placeholder,
   name,
   register,
@@ -20,6 +22,8 @@ function FormInput({
         type={type}
         className={styles.input}
         placeholder={placeholder}
+        defaultValue={value}
+        disabled={disabled}
         {...register(name, validation)}
       />
       {errors[name] && (
