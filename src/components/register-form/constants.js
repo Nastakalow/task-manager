@@ -16,14 +16,16 @@ export const REGISTER_FORM_FIELDS = [
     placeholder: "Organization Name",
     validation: organizationName_validation,
   },
+
   {
-    id: "phoneNumber",
-    label: "Phone Number",
-    type: "tel",
-    name: "phoneNumber",
-    placeholder: "Phone Number",
-    validation: phone_validation,
+    id: "email",
+    label: "Email",
+    type: "email",
+    name: "email",
+    placeholder: "Email",
+    validation: email_validation,
   },
+
   {
     id: "address",
     label: "Address",
@@ -38,15 +40,15 @@ export const REGISTER_FORM_FIELDS = [
     type: "text",
     name: "username",
     placeholder: "Username",
-    // validation: username_validation,
+    validation: username_validation,
   },
   {
-    id: "email",
-    label: "Email",
-    type: "email",
-    name: "email",
-    placeholder: "Email",
-    // validation: email_validation,
+    id: "phoneNumber",
+    label: "Phone Number",
+    type: "tel",
+    name: "phoneNumber",
+    placeholder: "Phone Number",
+    validation: phone_validation,
   },
   {
     id: "password",
@@ -54,6 +56,6 @@ export const REGISTER_FORM_FIELDS = [
     type: "password",
     name: "password",
     placeholder: "Password",
-    // validation: password_validation,
+    validation: password_validation,
   },
 ];

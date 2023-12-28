@@ -1,17 +1,20 @@
 import styles from "./styles.module.css";
 
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Task from "../../components/create-task/task";
 import TaskPopup from "../../components/create-task/popup";
-import { useDispatch, useSelector } from "react-redux";
+import TaskTopbar from "../../components/create-task/topbar";
+
 import { getTasks } from "../../features/task/taskSlice";
+import Loading from "../../components/loading";
 
 function TaskPageContainer() {
   const [showPopup, setShowPopup] = useState(false);
   const dispatch = useDispatch();
   const { organizationId } = JSON.parse(localStorage.getItem("user")) || {};
-  const { tasks } = useSelector((state) => state.tasks);
+  const { tasks, loading } = useSelector((state) => state.tasks);
 
   const handleShowPopup = () => {
     setShowPopup(true);
@@ -20,6 +23,10 @@ function TaskPageContainer() {
   useEffect(() => {
     dispatch(getTasks(organizationId));
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.container}>
@@ -31,7 +38,9 @@ function TaskPageContainer() {
           <TaskPopup setShowPopup={setShowPopup} />
         </div>
       )}
+
       <div className={styles.tasksWrapper}>
+        <TaskTopbar />
         {tasks?.map((task, index) => (
           <Task key={index} {...task} />
         ))}

@@ -1,0 +1,72 @@
+.taskWrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 12px 24px 12px;
+}
+
+.editBtn {
+  padding: 12px 18px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0px 6px;
+  border: 1px solid #fff;
+  margin-bottom: 16px;
+}
+
+.taskWrapper > div {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  color: #000;
+
+  padding: 12px 24px;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: bold;
+  width: 150px;
+  border-right: 1px solid #000;
+}
+
+.input {
+  text-transform: capitalize;
+  font-size: 16px;
+  margin: 0 16px;
+}
+
+.input[type="date"] {
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.submitBtn {
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  background: #000;
+  border-radius: 0px 6px;
+  padding: 12px 48px;
+  order: 2;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.errMessage {
+  color: #ff3071;
+  font-size: 14px;
+  margin-left: auto;
+}

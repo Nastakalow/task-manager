@@ -8,6 +8,10 @@
   gap: 16px;
 }
 
+.logo {
+  margin-bottom: 36px;
+}
+
 .logo > img {
   width: 100%;
 }

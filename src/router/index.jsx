@@ -12,6 +12,7 @@ import {
 } from "../pages";
 import MainLayout from "../layouts/main-layout";
 import UserTaskDetailPage from "../pages/user-task-detail-page";
+import AuthLayout from "../layouts/aut-layout";
 
 export const router = createBrowserRouter([
   {
@@ -19,16 +20,21 @@ export const router = createBrowserRouter([
     element: <Navigate to="/user/login" replace />,
   },
   {
-    path: "admin/login",
-    element: <AdminLoginPage />,
-  },
-  {
-    path: "admin/register",
-    element: <AdminRegisterPage />,
-  },
-  {
-    path: "user/login",
-    element: <UserLoginPage />,
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "admin/login",
+        element: <AdminLoginPage />,
+      },
+      {
+        path: "admin/register",
+        element: <AdminRegisterPage />,
+      },
+      {
+        path: "user/login",
+        element: <UserLoginPage />,
+      },
+    ],
   },
   {
     element: <MainLayout />,

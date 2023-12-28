@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 
+import { GoXCircle } from "react-icons/go";
 import { useForm } from "react-hook-form";
 
 import { CREATE_TASK_FORM_FIELDS } from "./constants";
@@ -36,20 +37,33 @@ function TaskPopup({ setShowPopup }) {
     setShowPopup(false);
   });
 
+  const inputProps = {
+    register,
+    errors,
+    styles: {
+      input: styles.input,
+      label: styles.label,
+      errMessage: styles.errMessage,
+    },
+  };
+
   return (
     <form
       ref={nodeRef}
       onSubmit={handleSubmit(submitTask)}
       className={styles.formContainer}
     >
+      <div className={styles.header}>
+        <h2 className={styles.title}>Create Task</h2>
+        <button onClick={() => setShowPopup(false)}>
+          <GoXCircle style={{ fontSize: "32px" }} />
+        </button>
+      </div>
       <div className={styles.fieldsWrapper}>
-        {CREATE_TASK_FORM_FIELDS.map((field) => (
-          <FormInput
-            key={field.id}
-            {...field}
-            register={register}
-            errors={errors}
-          />
+        {CREATE_TASK_FORM_FIELDS.map((field, index) => (
+          <div key={index} className={styles.inputWrapper}>
+            <FormInput {...field} {...inputProps} />
+          </div>
         ))}
       </div>
       <input className={styles.submitBtn} type="submit" value={"Create Task"} />

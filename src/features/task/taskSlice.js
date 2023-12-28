@@ -31,11 +31,19 @@ export const { actions, reducer } = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(getTasks.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(getTasks.fulfilled, (state, action) => {
+      state.loading = false;
       state.tasks = action.payload;
     });
 
+    builder.addCase(createTask.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(createTask.fulfilled, (state, action) => {
+      state.loading = false;
       state.tasks.push(action.payload);
     });
   },

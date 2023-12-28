@@ -9,7 +9,6 @@ import {
 export const CREATE_USER_FORM_FIELDS = [
   {
     id: "firstName",
-    label: "First Name",
     type: "text",
     name: "firstName",
     placeholder: "John",
@@ -17,7 +16,6 @@ export const CREATE_USER_FORM_FIELDS = [
   },
   {
     id: "lastName",
-    label: "Last Name",
     type: "text",
     name: "lastName",
     placeholder: "Doe",
@@ -25,7 +23,6 @@ export const CREATE_USER_FORM_FIELDS = [
   },
   {
     id: "username",
-    label: "Username",
     type: "text",
     name: "username",
     placeholder: "johndoe",
@@ -33,7 +30,6 @@ export const CREATE_USER_FORM_FIELDS = [
   },
   {
     id: "email",
-    label: "Email",
     type: "email",
     name: "email",
     placeholder: "you@example.com",
@@ -41,7 +37,6 @@ export const CREATE_USER_FORM_FIELDS = [
   },
   {
     id: "password",
-    label: "Password",
     type: "text",
     name: "password",
     placeholder: "********",

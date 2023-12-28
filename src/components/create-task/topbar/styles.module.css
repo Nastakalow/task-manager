@@ -1,14 +1,8 @@
-.taskContainer {
+.topbarContainer {
   display: block;
   padding: 24px 32px;
-  margin-bottom: 16px;
   box-sizing: border-box;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.taskContainer:last-child {
-  margin-bottom: 0;
 }
 
 .contentList {
@@ -17,15 +11,8 @@
   align-items: center;
 }
 
-.contentItem:nth-child(even) {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.contentItem:nth-child(odd) {
-  text-transform: capitalize;
-}
-
 .contentItem {
+  font-size: 22px;
   flex: 1;
   text-align: center;
 }

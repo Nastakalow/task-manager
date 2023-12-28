@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 function FormInput({
   id,
   label,
@@ -11,10 +9,11 @@ function FormInput({
   register,
   errors,
   validation,
+  styles,
 }) {
   return (
-    <div className={styles.groupContainer}>
-      <label htmlFor={id} className={styles.label}>
+    <>
+      <label className={styles.label} htmlFor={id}>
         {label}
       </label>
       <input
@@ -29,7 +28,7 @@ function FormInput({
       {errors[name] && (
         <p className={styles.errMessage}>{errors[name].message}</p>
       )}
-    </div>
+    </>
   );
 }
 

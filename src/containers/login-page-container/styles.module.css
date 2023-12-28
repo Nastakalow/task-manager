@@ -1,8 +1,50 @@
-.container {
+.loginContainer {
+  width: 30%;
+  padding: 36px 36px 24px 36px;
+
+  color: #000;
+  background: #fff;
+  border-radius: 20px;
+
+  margin: 130px auto 0 auto;
+}
+
+.header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
-  height: 100vh;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.link {
+  color: #fa0;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 960px) {
+  .loginContainer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .loginContainer {
+    width: 70%;
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
 }

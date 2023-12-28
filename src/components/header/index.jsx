@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
   const { username, role } = JSON.parse(localStorage.getItem("user")) || {};
-  const firtstLetter = username?.substring(0, 1)?.toUpperCase();
+  const firstLetter = username?.substring(0, 1)?.toUpperCase();
   const [showProfile, setShowProfile] = useState(false);
   const navigate = useNavigate();
   const nodeRef = useRef(null);
@@ -32,10 +32,10 @@ function Header() {
     <header className={styles.header}>
       <div ref={nodeRef} className={styles.profileWrapper}>
         <button onClick={handleClick} className={styles.profileBtn}>
-          <span className={styles.profileImg}>{firtstLetter}</span>
+          <span className={styles.profileImg}>{firstLetter}</span>
           <div>
             <h2 className={styles.username}>{username}</h2>
-            <span>{role}</span>
+            <span className={styles.role}>{role}</span>
           </div>
         </button>
         {showProfile && (

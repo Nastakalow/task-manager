@@ -13,6 +13,7 @@ function CreateUserForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const dispatch = useDispatch();
 
@@ -26,18 +27,27 @@ function CreateUserForm() {
     };
 
     dispatch(createUser(userData));
+    reset();
+  };
+
+  const inputProps = {
+    register,
+    errors,
+    styles: {
+      label: styles.label,
+      input: styles.input,
+      errMessage: styles.errMessage,
+    },
   };
 
   return (
     <form onSubmit={handleSubmit(submitLogin)} className={styles.formContainer}>
+      <h3 className={styles.title}>User Data</h3>
       <div className={styles.fieldsWrapper}>
         {CREATE_USER_FORM_FIELDS.map((field) => (
-          <FormInput
-            key={field.id}
-            {...field}
-            register={register}
-            errors={errors}
-          />
+          <div key={field.id} className={styles.inputWrapper}>
+            <FormInput key={field.id} {...field} {...inputProps} />
+          </div>
         ))}
       </div>
       <input className={styles.submitBtn} type="submit" value={"Create user"} />

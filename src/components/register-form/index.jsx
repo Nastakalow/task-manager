@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { REGISTER_FORM_FIELDS } from "./constants";
 import FormInput from "../form-input";
 
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, registerWithEmailAndPassword } from "../../services/auth";
+import { registerWithEmailAndPassword } from "../../services/auth";
 import { addOrganization } from "../../services/organization";
 
 function RegisterForm() {
@@ -16,7 +15,6 @@ function RegisterForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loading] = useAuthState(auth);
   const navigate = useNavigate();
   const ROLE = "admin";
 
@@ -42,9 +40,15 @@ function RegisterForm() {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const inputProps = {
+    register,
+    errors,
+    styles: {
+      label: styles.label,
+      input: styles.input,
+      errMessage: styles.errMessage,
+    },
+  };
 
   return (
     <form
@@ -53,12 +57,9 @@ function RegisterForm() {
     >
       <div className={styles.fieldsWrapper}>
         {REGISTER_FORM_FIELDS.map((field) => (
-          <FormInput
-            key={field.id}
-            {...field}
-            register={register}
-            errors={errors}
-          />
+          <div key={field.id} className={styles.inputWrapper}>
+            <FormInput key={field.id} {...field} {...inputProps} />
+          </div>
         ))}
       </div>
       <input className={styles.submitBtn} type="submit" value={"Register"} />

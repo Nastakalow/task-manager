@@ -1,16 +1,27 @@
-.navWrapper {
+.navItem {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  gap: 12px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
-.navItemWrapper {
-  border: 1px solid #fff;
-  display: flex;
+.navItem:hover {
+  background-color: #f8f8f8;
+  color: #000;
 }
 
-.iconWrapper {
+.active {
+  background-color: #f8f8f8;
+  color: #000;
 }
 
-.title {
+@media screen and (max-width: 490px) {
+  .navItem {
+    font-size: 14px;
+  }
 }
