@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-   <img src="./public/vite.svg" alt="Logo" />
+   <img src="./src/components/sidebar/logo.png" alt="Logo" />
 </div>
   
 &#xa0;
@@ -21,4 +21,4 @@ $ npm run dev
 
 ```
 
-## [Demo](https://task-managament.netlify.app)
+## [Demo](https://task-manager-blackwhite.netlify.app)
