@@ -21,4 +21,6 @@ $ npm run dev
 
 ```
 
+#### This project is a ReactJS application designed to manage tasks and user administration. Firebase is utilized for the database, and Redux Toolkit is used for state management.
+
 ## [Demo](https://task-manager-blackwhite.netlify.app)
